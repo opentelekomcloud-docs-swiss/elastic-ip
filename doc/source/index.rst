@@ -1,3 +1,8 @@
-==========================================
-Welcome to the documentation of elastic-ip
-==========================================
+Elastic IP
+==========
+
+.. directive_wrapper::
+   :class: container-sbv
+
+   .. service_card::
+      :service_type: eip
