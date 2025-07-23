@@ -2,9 +2,8 @@
 
 .. _faq_common_0001:
 
-What Is a Quota?
-================
-
+Managing Quotas
+===============
 
 What Is a Quota?
 ----------------
@@ -31,9 +30,9 @@ How Do I View My Quotas?
 How Do I Apply for a Higher Quota?
 ----------------------------------
 
-The system does not support online quota adjustment. If you need to adjust a quota, contact the administrator.
+The system does not support online quota adjustment. If you need to adjust a quota, contact the operations administrator.
 
-Before contacting the administrator, make sure that the following information has been obtained:
+Before contacting the operations administrator, make sure that the following information has been obtained:
 
 -  Domain name, project name, and project ID, which can be obtained by performing the following operations:
 
@@ -46,4 +45,4 @@ Before contacting the administrator, make sure that the following information ha
    -  Required quota
 
 .. |image1| image:: /_static/images/en-us_image_0275513364.png
-.. |image2| image:: /_static/images/en-us_image_0152727234.png
+.. |image2| image:: /_static/images/en-us_image_0000002189833272.png

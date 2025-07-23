@@ -2,7 +2,7 @@
 
 .. _faq_eip_0006:
 
-Can I Bind an EIP to Multiple ECSs?
+How Many ECSs Can I Bind an EIP To?
 ===================================
 
-Each EIP can be bound to only one ECS at a time.
+An EIP can be bound to only one ECS.

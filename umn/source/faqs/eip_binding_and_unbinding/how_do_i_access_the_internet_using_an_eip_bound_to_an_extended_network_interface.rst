@@ -1,0 +1,50 @@
+:original_name: faq_eip_0009.html
+
+.. _faq_eip_0009:
+
+How Do I Access the Internet Using an EIP Bound to an Extended Network Interface?
+=================================================================================
+
+#. After an EIP is bound to an extended network interface, log in to the ECS and use the **route** command to query the routes.
+
+   You can run **route --help** to learn more about the **route** command.
+
+
+   .. figure:: /_static/images/en-us_image_0000001818823554.png
+      :alt: **Figure 1** Viewing route information
+
+      **Figure 1** Viewing route information
+
+#. Run the **ifconfig** command to view the information about the network interface.
+
+
+   .. figure:: /_static/images/en-us_image_0000001818983338.png
+      :alt: **Figure 2** Viewing the information about the network interface
+
+      **Figure 2** Viewing the information about the network interface
+
+#. Enable access to the Internet through the extended network interface by default.
+
+   a. Run the following command to delete the default route of the primary network interface:
+
+      **route del -net 0.0.0.0 gw 192.168.11.1 dev eth0**
+
+      192.168.11.1 is the gateway of the subnet that the network interface works. You can view the gateway on the **Summary** tab page of the subnet on the management console.
+
+      .. note::
+
+         This operation will interrupt ECS communication. It is recommended that you perform the configuration by following step :ref:`4 <faq_eip_0009__en-us_topic_0000001818982590_li197393270215>`.
+
+   b. Run the following command to configure the default route for the extended network interface:
+
+      **route add default gw 192.168.17.1**
+
+#. .. _faq_eip_0009__en-us_topic_0000001818982590_li197393270215:
+
+   Configure Internet access from the extended network interface based on your destination address.
+
+   Run the following command to configure access to a specified CIDR block (for example, *xx.xx*.0.0/16) through the extended network interface:
+
+   You can configure the CIDR block as required.
+
+   **route add -net xx.xx.0.0 netmask 255.255.0.0 gw 192.168.17.1**

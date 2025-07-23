@@ -5,4 +5,4 @@
 What Is the Bandwidth Size Range?
 =================================
 
-The bandwidth ranges from 1 Mbit/s to 1000 Mbit/s.
+The bandwidth range is from 1 Mbit/s to 1000 Mbit/s.

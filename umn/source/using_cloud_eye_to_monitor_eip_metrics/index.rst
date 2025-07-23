@@ -2,12 +2,13 @@
 
 .. _monitor_0001:
 
-Monitoring
-==========
+Using Cloud Eye to Monitor EIP Metrics
+======================================
 
 -  :ref:`Supported Metrics <monitor_0002>`
 -  :ref:`Viewing Metrics <monitor_0003>`
 -  :ref:`Creating an Alarm Rule <monitor_0004>`
+-  :ref:`Exporting Monitoring Data <monitor_0005>`
 
 .. toctree::
    :maxdepth: 1
@@ -16,3 +17,4 @@ Monitoring
    supported_metrics
    viewing_metrics
    creating_an_alarm_rule
+   exporting_monitoring_data
