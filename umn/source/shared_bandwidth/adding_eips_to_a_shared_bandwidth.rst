@@ -13,8 +13,7 @@ Add EIPs to a shared bandwidth and the EIPs can then share that bandwidth. You c
 Notes and Constraints
 ---------------------
 
--  After an EIP is added to a shared bandwidth, the original bandwidth used by the EIP will become invalid and the EIP will start to use the shared bandwidth.
--  The EIP's original dedicated bandwidth will be deleted.
+-  The type of EIPs must be the same as that of the shared bandwidth the EIPs to be added to.
 
 Procedure
 ---------
@@ -22,9 +21,9 @@ Procedure
 #. Log in to the management console.
 
 2. Click |image1| in the upper left corner and select the desired region and project.
-3. On the console homepage, under **Network**, click **Elastic IP**.
+3. Click |image2| in the upper left corner, and choose > **Elastic IP**.
 4. In the navigation pane on the left, choose **Elastic IP and Bandwidth** > **Shared Bandwidths**.
-5. In the shared bandwidth list, locate the row that contains the shared bandwidth to which you want to add EIPs. In the **Operation** column, choose **More** > **Add EIP**, and select the EIPs to be added.
-6. Click **OK**.
+5. Click **OK**.
 
-.. |image1| image:: /_static/images/en-us_image_0141273034.png
+.. |image1| image:: /_static/images/en-us_image_0000001818982734.png
+.. |image2| image:: /_static/images/en-us_image_0000001818982822.png

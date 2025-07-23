@@ -18,11 +18,18 @@ Procedure
 ---------
 
 #. Log in to the management console.
+
 #. Click |image1| in the upper left corner and select the desired region and project.
-#. On the console homepage, under **Network**, click **Elastic IP**.
+
+#. Click |image2| in the upper left corner, and choose > **Elastic IP**.
+
 #. Locate the row that contains the target EIP in the EIP list, click **More** in the **Operation** column, and select **Modify Bandwidth**.
+
 #. Modify the bandwidth parameters as prompted.
+
 #. Click **Next**.
+
 #. Click **Submit**.
 
-.. |image1| image:: /_static/images/en-us_image_0141273034.png
+.. |image1| image:: /_static/images/en-us_image_0000001818982734.png
+.. |image2| image:: /_static/images/en-us_image_0000001818982822.png

@@ -5,12 +5,16 @@
 Product Consultation
 ====================
 
--  :ref:`What Is a Quota? <faq_common_0001>`
--  :ref:`Can I Bind an EIP to Multiple ECSs? <faq_eip_0006>`
+-  :ref:`Managing Quotas <faq_common_0001>`
+-  :ref:`How Do I Assign or Retrieve a Specific EIP? <faq_eip_0012>`
+-  :ref:`How Many ECSs Can I Bind an EIP To? <faq_eip_0006>`
+-  :ref:`What Is the EIP Assignment Policy? <faq_eip_0016>`
 
 .. toctree::
    :maxdepth: 1
    :hidden: 
 
-   what_is_a_quota
-   can_i_bind_an_eip_to_multiple_ecss
+   managing_quotas
+   how_do_i_assign_or_retrieve_a_specific_eip
+   how_many_ecss_can_i_bind_an_eip_to
+   what_is_the_eip_assignment_policy

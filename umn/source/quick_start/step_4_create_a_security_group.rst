@@ -8,31 +8,37 @@ Step 4: Create a Security Group
 Scenarios
 ---------
 
-To improve ECS access security, you can create security groups, define security group rules, and add ECSs in a VPC to different security groups. We recommend that you allocate ECSs that have different Internet access policies to different security groups.
+A security group is a collection of access control rules to control the traffic that is allowed to reach and leave the cloud resources that it is associated with. The cloud resources can be cloud servers, containers, databases, and more. A security group consists of inbound and outbound rules.
 
 Procedure
 ---------
 
 #. Log in to the management console.
 
-2. Click |image1| in the upper left corner and select the desired region and project.
+#. Click |image1| in the upper left corner and select the desired region and project.
 
-3. On the console homepage, under **Network**, click **Virtual Private Cloud**.
+#. Click |image2| in the upper left corner and choose > **Virtual Private Cloud**.
 
-4. In the navigation pane on the left, choose **Access Control** > **Security Groups**.
+   The **Virtual Private Cloud** page is displayed.
 
-5. On the **Security Groups** page, click **Create Security Group**.
+#. In the navigation pane on the left, choose **Access Control** > **Security Groups**.
 
-6. In the **Create Security Group** area, set the parameters as prompted. :ref:`Table 1 <qsg_0006__en-us_topic_0118646265_en-us_topic_0118534004_table65377617111335>` lists the parameters to be configured.
+   The security group list is displayed.
 
-   .. _qsg_0006__en-us_topic_0118646265_en-us_topic_0118534004_table65377617111335:
+#. In the upper right corner, click **Create Security Group**.
+
+   The **Create Security Group** page is displayed.
+
+#. Configure the parameters as prompted.
 
    .. table:: **Table 1** Parameter description
 
       +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
       | Parameter             | Description                                                                                                                                                                          | Example Value         |
       +=======================+======================================================================================================================================================================================+=======================+
-      | Name                  | The security group name. This parameter is mandatory.                                                                                                                                | sg-318b               |
+      | Name                  | Mandatory                                                                                                                                                                            | sg-AB                 |
+      |                       |                                                                                                                                                                                      |                       |
+      |                       | Enter the security group name.                                                                                                                                                       |                       |
       |                       |                                                                                                                                                                                      |                       |
       |                       | The security group name can contain a maximum of 64 characters, which may consist of letters, digits, underscores (_), hyphens (-), and periods (.). The name cannot contain spaces. |                       |
       |                       |                                                                                                                                                                                      |                       |
@@ -40,11 +46,14 @@ Procedure
       |                       |                                                                                                                                                                                      |                       |
       |                       |    You can change the security group name after a security group is created. It is recommended that you give each security group a different name.                                   |                       |
       +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
-      | Description           | Supplementary information about the security group. This parameter is optional.                                                                                                      | N/A                   |
+      | Description           | Optional                                                                                                                                                                             | N/A                   |
+      |                       |                                                                                                                                                                                      |                       |
+      |                       | Supplementary information about the security group. This parameter is optional.                                                                                                      |                       |
       |                       |                                                                                                                                                                                      |                       |
       |                       | The security group description can contain a maximum of 255 characters and cannot contain angle brackets (< or >).                                                                   |                       |
       +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
 
-7. Click **OK**.
+#. Confirm the inbound and outbound rules of the template and click **OK**.
 
-.. |image1| image:: /_static/images/en-us_image_0141273034.png
+.. |image1| image:: /_static/images/en-us_image_0000001818982734.png
+.. |image2| image:: /_static/images/en-us_image_0000001865582681.png
