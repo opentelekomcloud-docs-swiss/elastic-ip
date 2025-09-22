@@ -5,7 +5,7 @@
 EIP
 ===
 
--  :ref:`Assigning an EIP <eip_api_0001>`
+-  :ref:`Assigning an EIP (Pay-per-Use) <eip_api_0001>`
 -  :ref:`Querying an EIP <eip_api_0002>`
 -  :ref:`Querying EIPs <eip_api_0003>`
 -  :ref:`Updating an EIP <eip_api_0004>`
@@ -15,7 +15,7 @@ EIP
    :maxdepth: 1
    :hidden: 
 
-   assigning_an_eip
+   assigning_an_eip_pay-per-use
    querying_an_eip
    querying_eips
    updating_an_eip

@@ -17,33 +17,28 @@ GET /v1/{project_id}/bandwidths
 
 :ref:`Table 1 <eip_apibandwidth_0002__en-us_topic_0201534198_table62833603>` describes the parameters.
 
-Request Message
----------------
+.. _eip_apibandwidth_0002__en-us_topic_0201534198_table62833603:
 
--  Request parameter
+.. table:: **Table 1** Parameter description
 
-   .. _eip_apibandwidth_0002__en-us_topic_0201534198_table62833603:
-
-   .. table:: **Table 1** Request parameters
-
-      +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Name            | Mandatory       | Type            | Description                                                                                                                                                                                                            |
-      +=================+=================+=================+========================================================================================================================================================================================================================+
-      | project_id      | Yes             | String          | Specifies the project ID. For details about how to obtain a project ID, see :ref:`Obtaining a Project ID <eip_api06_0004>`.                                                                                            |
-      +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | marker          | No              | String          | Specifies a resource ID for pagination query, indicating that the query starts from the next record of the specified resource ID.                                                                                      |
-      |                 |                 |                 |                                                                                                                                                                                                                        |
-      |                 |                 |                 | This parameter can work together with the parameter **limit**.                                                                                                                                                         |
-      |                 |                 |                 |                                                                                                                                                                                                                        |
-      |                 |                 |                 | -  If parameters **marker** and **limit** are not passed, resource records on the first page will be returned.                                                                                                         |
-      |                 |                 |                 | -  If the parameter **marker** is not passed and the value of parameter **limit** is set to **10**, the first 10 resource records will be returned.                                                                    |
-      |                 |                 |                 | -  If the value of the parameter **marker** is set to the resource ID of the 10th record and the value of parameter **limit** is set to **10**, the 11th to 20th resource records will be returned.                    |
-      |                 |                 |                 | -  If the value of the parameter **marker** is set to the resource ID of the 10th record and the parameter **limit** is not passed, resource records starting from the 11th records (including 11th) will be returned. |
-      +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | limit           | No              | Integer         | Specifies the number of records that will be returned on each page. The value is from 0 to intmax (2^31-1). The default value is 2000.                                                                                 |
-      |                 |                 |                 |                                                                                                                                                                                                                        |
-      |                 |                 |                 | **limit** can be used together with **marker**. For details, see the parameter description of **marker**.                                                                                                              |
-      +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                                                                                        |
+   +=================+=================+=================+====================================================================================================================================================================================================================================+
+   | project_id      | Yes             | String          | Specifies the project ID. For details about how to obtain a project ID, see :ref:`Obtaining a Project ID <eip_api06_0004>`.                                                                                                        |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | marker          | No              | String          | Specifies a resource ID for pagination query, indicating that the query starts from the next record of the specified resource ID.                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                                                    |
+   |                 |                 |                 | This parameter can work together with the parameter **limit**.                                                                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                                                                                                    |
+   |                 |                 |                 | -  If parameters **marker** and **limit** are not passed, resource records on the first page will be returned.                                                                                                                     |
+   |                 |                 |                 | -  If the parameter **marker** is not passed and the value of parameter **limit** is set to **10**, the first 10 resource records will be returned.                                                                                |
+   |                 |                 |                 | -  If the value of the parameter **marker** is set to the resource ID of the 10th record and the value of parameter **limit** is set to **10**, the 11th to 20th resource records will be returned.                                |
+   |                 |                 |                 | -  If the value of the parameter **marker** is set to the resource ID of the 10th record and the parameter **limit** is not passed, 11th to 2,000th resource records will be returned. The default value of **limit** is **2000**. |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | limit           | No              | Integer         | Specifies the number of records that will be returned on each page. The value is from 0 to intmax (2^31-1). The default value is 2000.                                                                                             |
+   |                 |                 |                 |                                                                                                                                                                                                                                    |
+   |                 |                 |                 | **limit** can be used together with **marker**. For details, see the parameter description of **marker**.                                                                                                                          |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 -  Example request
 
@@ -59,7 +54,7 @@ Response Message
    .. table:: **Table 2** Response parameter
 
       +------------+--------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-      | Name       | Type                                                                                             | Description                                                                                                                     |
+      | Parameter  | Type                                                                                             | Description                                                                                                                     |
       +============+==================================================================================================+=================================================================================================================================+
       | bandwidths | Array of :ref:`bandwidths <eip_apibandwidth_0002__en-us_topic_0201534198_table17227723>` objects | Specifies the bandwidth objects. For details, see :ref:`Table 3 <eip_apibandwidth_0002__en-us_topic_0201534198_table17227723>`. |
       +------------+--------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
@@ -69,7 +64,7 @@ Response Message
    .. table:: **Table 3** Description of the **bandwidths** field
 
       +-----------------------+-----------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Name                  | Type                                                                                                | Description                                                                                                                                                                                                        |
+      | Parameter             | Type                                                                                                | Description                                                                                                                                                                                                        |
       +=======================+=====================================================================================================+====================================================================================================================================================================================================================+
       | name                  | String                                                                                              | -  Specifies the bandwidth name.                                                                                                                                                                                   |
       |                       |                                                                                                     | -  The value can contain 1 to 64 characters, including letters, digits, underscores (_), hyphens (-), and periods (.).                                                                                             |
@@ -115,7 +110,7 @@ Response Message
    .. table:: **Table 4** **publicip_info** object
 
       +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-      | Name                  | Type                  | Description                                                                                                           |
+      | Parameter             | Type                  | Description                                                                                                           |
       +=======================+=======================+=======================================================================================================================+
       | publicip_id           | String                | Specifies the ID of the EIP that uses the bandwidth.                                                                  |
       +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
@@ -144,40 +139,46 @@ Response Message
         "bandwidths": [
           {
             "id": "09b99c91-da7c-449f-94e2-f4934c5b2a71",
-            "name": "vpngw-f632a7b0-ef50-4ac5-97e9-ddc56b3d5977",
+            "name": "test-f632a7b0-ef50-4ac5-97e9-ddc56b3d5977",
             "size": 200,
             "share_type": "PER",
+            "public_border_group": "center",
+            "created_at": "2024-04-27T00:14:36Z",
+            "updated_at": "2024-04-27T00:14:36Z",
             "publicip_info": [
               {
                 "publicip_id": "2a65923c-7133-415d-ae3b-cf9635a942c5",
                 "publicip_address": "10.xx.xx.3",
                 "ip_version": 4,
-                "publicip_type": "5_bgp",
+                "publicip_type": "5_bgp"
               }
             ],
             "tenant_id": "26ae5181a416420998eb2093aaed84d9",
             "bandwidth_type": "bgp",
             "charge_mode": "bandwidth",
-      ,
+
             "status": "NORMAL"
           },
           {
             "id": "0a583ff1-b43e-4000-ade3-e7af0097f832",
-            "name": "vpngw-7e880d5b-f458-40ad-a7e5-735c44cd8b7d",
+            "name": "test-7e880d5b-f458-40ad-a7e5-735c44cd8b7d",
             "size": 300,
             "share_type": "PER",
+            "public_border_group": "center",
+            "created_at": "2024-04-27T00:14:36Z",
+            "updated_at": "2024-04-27T00:14:36Z",
             "publicip_info": [
               {
                 "publicip_id": "c754bc9a-16d5-4763-9674-d7561917aa80",
                 "publicip_address": "10.xx.xx.9",
                 "ip_version": 4,
-                "publicip_type": "5_bgp",
+                "publicip_type": "5_bgp"
               }
             ],
             "tenant_id": "26ae5181a416420998eb2093aaed84d9",
             "bandwidth_type": "bgp",
             "charge_mode": "bandwidth",
-      ,
+
             "status": "NORMAL"
           },
           {
@@ -185,18 +186,21 @@ Response Message
             "name": "bandwidth123",
             "size": 10,
             "share_type": "PER",
+            "public_border_group": "center",
+            "created_at": "2024-04-27T00:14:36Z",
+            "updated_at": "2024-04-27T00:14:36Z",
             "publicip_info": [
               {
                 "publicip_id": "cec7fb70-2f82-4561-bd83-2121fb642fdc",
                 "publicip_address": "10.xx.xx.184",
                 "ip_version": 4,
-                "publicip_type": "5_bgp",
+                "publicip_type": "5_bgp"
               }
             ],
             "tenant_id": "26ae5181a416420998eb2093aaed84d9",
             "bandwidth_type": "bgp",
             "charge_mode": "bandwidth",
-      ,
+
             "status": "NORMAL"
           },
           {
@@ -204,18 +208,21 @@ Response Message
             "name": "bandwidth123",
             "size": 100,
             "share_type": "PER",
+            "public_border_group": "center",
+            "created_at": "2024-04-27T00:14:36Z",
+            "updated_at": "2024-04-27T00:14:36Z",
             "publicip_info": [
               {
                 "publicip_id": "24232038-e178-40ad-80e4-5abb75db84be",
                 "publicip_address": "10.xx.xx.101",
                 "ip_version": 4,
-                "publicip_type": "5_bgp",
+                "publicip_type": "5_bgp"
               }
             ],
             "tenant_id": "26ae5181a416420998eb2093aaed84d9",
             "bandwidth_type": "bgp",
             "charge_mode": "bandwidth",
-      ,
+
             "status": "NORMAL"
           }
         ]

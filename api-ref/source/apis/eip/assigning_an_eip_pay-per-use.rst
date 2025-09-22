@@ -2,8 +2,8 @@
 
 .. _eip_api_0001:
 
-Assigning an EIP
-================
+Assigning an EIP (Pay-per-Use)
+==============================
 
 Function
 --------
@@ -24,7 +24,7 @@ POST /v1/{project_id}/publicips
 .. table:: **Table 1** Parameter description
 
    +------------+-----------+-----------------------------------------------------------------------------------------------------------------------------+
-   | Name       | Mandatory | Description                                                                                                                 |
+   | Parameter  | Mandatory | Description                                                                                                                 |
    +============+===========+=============================================================================================================================+
    | project_id | Yes       | Specifies the project ID. For details about how to obtain a project ID, see :ref:`Obtaining a Project ID <eip_api06_0004>`. |
    +------------+-----------+-----------------------------------------------------------------------------------------------------------------------------+
@@ -35,7 +35,7 @@ Request Parameters
 .. table:: **Table 2** Request body parameter
 
    +-----------+-----------+------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-   | Name      | Mandatory | Type                                                                         | Description                                                                                                           |
+   | Parameter | Mandatory | Type                                                                         | Description                                                                                                           |
    +===========+===========+==============================================================================+=======================================================================================================================+
    | publicip  | Yes       | :ref:`publicip <eip_api_0001__en-us_topic_0201534274_table4491214>` object   | Specifies the EIP object. For details, see :ref:`Table 3 <eip_api_0001__en-us_topic_0201534274_table4491214>`.        |
    +-----------+-----------+------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
@@ -47,7 +47,7 @@ Request Parameters
 .. table:: **Table 3** Description of the **publicip** field
 
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Name            | Mandatory       | Type            | Description                                                                                                                   |
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                   |
    +=================+=================+=================+===============================================================================================================================+
    | type            | Yes             | String          | -  Specifies the EIP type.                                                                                                    |
    |                 |                 |                 | -  The value can be **5_bgp** and **5_dualStack**.                                                                            |
@@ -62,13 +62,16 @@ Request Parameters
    |                 |                 |                 |    -  The configured value must be supported by the system.                                                                   |
    |                 |                 |                 |    -  If this parameter is left blank or is an empty string, IPv4 address is created by default.                              |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+   | alias           | No              | String          | -  Specifies the EIP name.                                                                                                    |
+   |                 |                 |                 | -  The value can contain 1 to 64 characters, including letters, digits, underscores (_), hyphens (-), and periods (.).        |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
 
 .. _eip_api_0001__en-us_topic_0201534274_table11041789:
 
 .. table:: **Table 4** Description of the **bandwidth** field
 
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Name            | Mandatory       | Type            | Description                                                                                                                                                                                                        |
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                                                                        |
    +=================+=================+=================+====================================================================================================================================================================================================================+
    | name            | Yes             | String          | -  Specifies the bandwidth name.                                                                                                                                                                                   |
    |                 |                 |                 | -  The value can contain 1 to 64 characters, including letters, digits, underscores (_), hyphens (-), and periods (.).                                                                                             |
@@ -89,26 +92,30 @@ Request Parameters
    | share_type      | Yes             | String          | -  Specifies the bandwidth type.                                                                                                                                                                                   |
    |                 |                 |                 | -  The value is **PER**, indicating that the bandwidth is dedicated.                                                                                                                                               |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | charge_mode     | No              | String          | -  The value is **traffic**, indicating that the billing is based on traffic.                                                                                                                                      |
+   | charge_mode     | No              | String          | -  Specifies whether the bandwidth is billed by traffic or by bandwidth size.                                                                                                                                      |
+   |                 |                 |                 | -  The value is **traffic**, indicating that the billing is based on traffic.                                                                                                                                      |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
--  Example request (IPv4 EIP with dedicated bandwidth)
+Example Request
+---------------
 
-   .. code-block:: text
+Example request (IPv4 EIP with dedicated bandwidth)
 
-      POST https://{Endpoint}/v1/{project_id}/publicips
+.. code-block:: text
 
-      {
-          "publicip": {
-              "type": "5_bgp",
-              "ip_version": 4
-          },
-          "bandwidth": {
-              "name": "bandwidth123",
-              "size": 10,
-              "share_type": "PER"
-          }
-      }
+   POST https://{Endpoint}/v1/{project_id}/publicips
+
+   {
+       "publicip": {
+           "type": "5_bgp",
+           "ip_version": 4
+       },
+       "bandwidth": {
+           "name": "bandwidth123",
+           "size": 10,
+           "share_type": "PER"
+       }
+   }
 
 Response Message
 ----------------
@@ -117,75 +124,93 @@ Response Message
 
    .. table:: **Table 5** Response parameter
 
-      +----------+-----------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
-      | Name     | Type                                                                        | Description                                                                                                     |
-      +==========+=============================================================================+=================================================================================================================+
-      | publicip | :ref:`publicip <eip_api_0001__en-us_topic_0201534274_table44471219>` object | Specifies the EIP object. For details, see :ref:`Table 6 <eip_api_0001__en-us_topic_0201534274_table44471219>`. |
-      +----------+-----------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+      +-----------+-----------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+      | Parameter | Type                                                                        | Description                                                                                                     |
+      +===========+=============================================================================+=================================================================================================================+
+      | publicip  | :ref:`publicip <eip_api_0001__en-us_topic_0201534274_table44471219>` object | Specifies the EIP object. For details, see :ref:`Table 6 <eip_api_0001__en-us_topic_0201534274_table44471219>`. |
+      +-----------+-----------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
 
    .. _eip_api_0001__en-us_topic_0201534274_table44471219:
 
    .. table:: **Table 6** Description of the **publicip** field
 
-      +-----------------------+-----------------------+--------------------------------------------------------------------+
-      | Name                  | Type                  | Description                                                        |
-      +=======================+=======================+====================================================================+
-      | id                    | String                | Specifies the unique identifier of an EIP.                         |
-      +-----------------------+-----------------------+--------------------------------------------------------------------+
-      | status                | String                | -  Specifies the EIP status.                                       |
-      |                       |                       | -  Possible values are as follows:                                 |
-      |                       |                       |                                                                    |
-      |                       |                       |    -  **FREEZED** (Frozen)                                         |
-      |                       |                       |    -  **BIND_ERROR** (Binding failed)                              |
-      |                       |                       |    -  **BINDING** (Binding)                                        |
-      |                       |                       |    -  **PENDING_DELETE** (Releasing)                               |
-      |                       |                       |    -  **PENDING_CREATE** (Assigning)                               |
-      |                       |                       |    -  **PENDING_UPDATE** (Updating)                                |
-      |                       |                       |    -  **NOTIFYING** (Assigning)                                    |
-      |                       |                       |    -  **NOTIFY_DELETE** (Release)                                  |
-      |                       |                       |    -  **DOWN** (Unbound)                                           |
-      |                       |                       |    -  **ACTIVE** (Bound)                                           |
-      |                       |                       |    -  **ELB** (Bound to a load balancer)                           |
-      |                       |                       |    -  **VPN** (Bound to a VPN)                                     |
-      |                       |                       |    -  **ERROR** (Exceptions)                                       |
-      +-----------------------+-----------------------+--------------------------------------------------------------------+
-      | type                  | String                | -  Specifies the EIP type.                                         |
-      |                       |                       | -  The value can be **5_bgp** and **5_dualStack**.                 |
-      |                       |                       | -  Constraints:                                                    |
-      |                       |                       |                                                                    |
-      |                       |                       |    -  The configured value must be supported by the system.        |
-      +-----------------------+-----------------------+--------------------------------------------------------------------+
-      | public_ip_address     | String                | Specifies the obtained EIP if only IPv4 EIPs are available.        |
-      +-----------------------+-----------------------+--------------------------------------------------------------------+
-      | ip_version            | Integer               | Specifies the IP address version. The value can be **4** or **6**. |
-      |                       |                       |                                                                    |
-      |                       |                       | -  **4**: IPv4                                                     |
-      |                       |                       | -  **6**: IPv6 (IPv6 is not supported currently.)                  |
-      +-----------------------+-----------------------+--------------------------------------------------------------------+
-      | tenant_id             | String                | Specifies the project ID.                                          |
-      +-----------------------+-----------------------+--------------------------------------------------------------------+
-      | create_time           | String                | Specifies the time (UTC) when the EIP is assigned.                 |
-      +-----------------------+-----------------------+--------------------------------------------------------------------+
-      | bandwidth_size        | Integer               | Specifies the bandwidth (Mbit/s).                                  |
-      +-----------------------+-----------------------+--------------------------------------------------------------------+
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | Parameter             | Type                  | Description                                                          |
+      +=======================+=======================+======================================================================+
+      | id                    | String                | Specifies the unique identifier of an EIP.                           |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | status                | String                | -  Specifies the EIP status.                                         |
+      |                       |                       | -  Possible values are as follows:                                   |
+      |                       |                       |                                                                      |
+      |                       |                       |    -  **FREEZED** (Frozen)                                           |
+      |                       |                       |    -  **BIND_ERROR** (Binding failed)                                |
+      |                       |                       |    -  **BINDING** (Binding)                                          |
+      |                       |                       |    -  **PENDING_DELETE** (Releasing)                                 |
+      |                       |                       |    -  **PENDING_CREATE** (Assigning)                                 |
+      |                       |                       |    -  **PENDING_UPDATE** (Updating)                                  |
+      |                       |                       |    -  **NOTIFYING** (Assigning)                                      |
+      |                       |                       |    -  **NOTIFY_DELETE** (Release)                                    |
+      |                       |                       |    -  **DOWN** (Unbound)                                             |
+      |                       |                       |    -  **ACTIVE** (Bound)                                             |
+      |                       |                       |    -  **ELB** (Bound to a load balancer)                             |
+      |                       |                       |    -  **VPN** (Bound to a VPN)                                       |
+      |                       |                       |    -  **ERROR** (Exceptions)                                         |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | type                  | String                | -  Specifies the EIP type.                                           |
+      |                       |                       | -  The value can be **5_bgp** and **5_dualStack**.                   |
+      |                       |                       | -  Constraints:                                                      |
+      |                       |                       |                                                                      |
+      |                       |                       |    -  The configured value must be supported by the system.          |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | public_ip_address     | String                | Specifies the obtained EIP if only IPv4 EIPs are available.          |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | ip_version            | Integer               | Specifies the IP address version. The value can be **4** or **6**.   |
+      |                       |                       |                                                                      |
+      |                       |                       | -  **4**: IPv4                                                       |
+      |                       |                       | -  **6**: IPv6 (IPv6 is not supported currently.)                    |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | tenant_id             | String                | Specifies the project ID.                                            |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | create_time           | String                | Specifies the time (UTC) when the EIP is assigned.                   |
+      |                       |                       |                                                                      |
+      |                       |                       | Format: *yyyy-MM-dd HH:mm:ss*                                        |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | bandwidth_size        | Integer               | Specifies the bandwidth (Mbit/s).                                    |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | alias                 | String                | Specifies the EIP name.                                              |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
+      | public_border_group   | String                | Specifies whether it is in a central site or an edge site.           |
+      |                       |                       |                                                                      |
+      |                       |                       | The value can be:                                                    |
+      |                       |                       |                                                                      |
+      |                       |                       | -  center                                                            |
+      |                       |                       | -  *Edge site name*                                                  |
+      |                       |                       |                                                                      |
+      |                       |                       | This resource can only be associated with an EIP of the same region. |
+      +-----------------------+-----------------------+----------------------------------------------------------------------+
 
--  Example response (IPv4 EIP with dedicated bandwidth)
+Example Response
+----------------
 
-   .. code-block::
+Example response (IPv4 EIP with dedicated bandwidth)
 
-      {
-          "publicip": {
-              "id": "f588ccfa-8750-4d7c-bf5d-2ede24414706",
-              "status": "PENDING_CREATE",
-              "type": "5_bgp",
-              "public_ip_address": "161.xx.xx.7",
-              "tenant_id": "8b7e35ad379141fc9df3e178bd64f55c",
-              "ip_version": 4,
-              "create_time": "2015-07-16 04:10:52",
-              "bandwidth_size": 0,
+.. code-block::
 
-          }
-      }
+   {
+       "publicip": {
+           "id": "f588ccfa-8750-4d7c-bf5d-2ede24414706",
+           "alias": "tom",
+           "public_border_group": "center",
+           "status": "PENDING_CREATE",
+           "type": "5_bgp",
+           "public_ip_address": "161.xx.xx.7",
+           "tenant_id": "8b7e35ad379141fc9df3e178bd64f55c",
+           "ip_version": 4,
+           "create_time": "2015-07-16 04:10:52",
+           "bandwidth_size": 0
+
+       }
+   }
 
 Status Code
 -----------
