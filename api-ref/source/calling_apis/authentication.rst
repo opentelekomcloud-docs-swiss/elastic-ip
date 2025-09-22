@@ -14,7 +14,9 @@ Token Authentication
 
    The validity period of a token is 24 hours. When using a token for authentication, cache it to prevent frequently calling the IAM API used to obtain a user token.
 
-A token specifies temporary permissions in a computer system. During API authentication using a token, the token is added to requests to get permissions for calling the API. You can obtain a token by calling the `Obtaining User Token <https://docs.sc.otc.t-systems.com/api/iam/en-us_topic_0057845583.html>`__ API.
+A token specifies temporary permissions in a computer system. During API authentication using a token, the token is added to the request header to get permissions for calling the API.
+
+You can obtain a token by calling the API for `obtaining a user token <https://docs.sc.otc.t-systems.com/api/iam/en-us_topic_0057845583.html>`__.
 
 EIP is a project-level service. When you call the API, set **auth.scope** in the request body to **project**.
 
@@ -31,7 +33,7 @@ EIP is a project-level service. When you call the API, set **auth.scope** in the
                        "name": "username",   // IAM user name
                        "password": "********",  // IAM user password
                        "domain": {
-                           "name": "domainname"  // Name of the account to which the IAM user belongs
+                           "name": "domainname"  //Name of the account to which the IAM user belongs
                        }
                    }
                }

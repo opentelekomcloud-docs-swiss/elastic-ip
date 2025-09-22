@@ -1,9 +1,29 @@
-:original_name: eip_api01_0005.html
+:original_name: eip_api01_0001.html
 
-.. _eip_api01_0005:
+.. _eip_api01_0001:
+
+Before You Start
+================
+
+Welcome to *Elastic IP API Reference*. The EIP service provides independent public IP addresses and bandwidth for Internet access.
+
+EIPs can be bound to or unbound from ECSs, BMSs virtual IP addresses, NAT gateways, or load balancers. Various billing modes are provided to meet diverse service requirements.
+
+This document describes how to use application programming interfaces (APIs) to perform operations on EIPs, such as creating, querying, deleting, and updating an EIP. For details about all supported operations, see :ref:`API Overview <eip_api02_0001>`.
+
+If you plan to access EIPs through an API, ensure that you are familiar with EIP concepts. For details, see "Service Overview" in the *Elastic IP User Guide*.
+
+EIP supports Representational State Transfer (REST) APIs, allowing you to call APIs using HTTPS.
+
+For details about API calling, see :ref:`Calling APIs <eip_api03_0001>`.
+
+EIP Endpoints
+-------------
+
+An endpoint is the **request address** for calling an API. Endpoints vary depending on services and regions. Currently, EIP and VPC use same endpoints. For the endpoints of all services, see `Regions and Endpoints <https://docs.sc.otc.t-systems.com/en-us/endpoint/index.html>`__.
 
 Concepts
-========
+--------
 
 -  Domain
 
@@ -13,7 +33,7 @@ Concepts
 
    An IAM user is created by an account in IAM to use cloud services. Each IAM user has its own identity credentials (password and access keys).
 
-   API authentication requires information such as the account name, username, and password.
+   API authentication requires information such as the domain name, username, and password.
 
 -  Region
 

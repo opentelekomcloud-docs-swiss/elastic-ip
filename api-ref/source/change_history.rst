@@ -8,6 +8,10 @@ Change History
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Released On                       | Description                                                                                                                                               |
 +===================================+===========================================================================================================================================================+
+| 2025-08-14                        | This release incorporates the following changes:                                                                                                          |
+|                                   |                                                                                                                                                           |
+|                                   | Added :ref:`API V3 <eip_apiv3_0000>`.                                                                                                                     |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 2023-07-27                        | This release incorporates the following changes:                                                                                                          |
 |                                   |                                                                                                                                                           |
 |                                   | Modified description about the **quota** parameter in :ref:`Querying the Quota <eip_apiquota_0001>`.                                                      |
@@ -22,7 +26,7 @@ Change History
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 2022-02-10                        | This release incorporates the following changes:                                                                                                          |
 |                                   |                                                                                                                                                           |
-|                                   | -  Added parameter **ip_version** to :ref:`Assigning an EIP <eip_api_0001>`.                                                                              |
+|                                   | -  Added parameter **ip_version** to :ref:`Assigning an EIP (Pay-per-Use) <eip_api_0001>`.                                                                |
 |                                   | -  Added parameters **public_ip_address** and **bandwidth_name** to :ref:`Querying an EIP <eip_api_0002>`.                                                |
 |                                   | -  Added parameters **bandwidth_name**, **profile**, and **ip_version** to :ref:`Querying EIPs <eip_api_0003>` and :ref:`Updating an EIP <eip_api_0004>`. |
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
